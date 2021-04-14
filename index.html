@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Песня: <span class="span"></span></h1>
+	<iframe class="iframe" src="twenty-one-pilots-stressed-out.mp3"></iframe>
+	<button class="prev">Предыдущий трек</button>
+	<button class="next">Следующий трек</button>
+
+	<script type="text/javascript">
+		let span = document.querySelector('.span')
+		let iframe = document.querySelector('.iframe')
+		let prev = document.querySelector('.prev')
+		let next = document.querySelector('.next')
+
+		let playlist = ['twenty-one-pilots-stressed-out.mp3', 'Linkin Park — Burn It Down.mp3', 'Dynoro-In_My_Mind_(RU.MP3SET.INFO).mp3',]
+		let index = 0;
+		next.onclick = function(){
+			index = index + 1
+			span.innerHTML = playlist[index]
+			iframe.src = playlist[index]
+			if (index > 2){
+				index = 0
+
+				span.innerHTML = playlist[index]
+				iframe.src = playlist[index]
+			}
+		}
+		prev.onclick = function(){
+			index = index - 1
+			span.innerHTML = playlist[index]
+			iframe.src = playlist[index]
+			if (index < 0){
+				index = 2
+
+				span.innerHTML = playlist[index]
+				iframe.src = playlist[index]
+			}
+		}
+	</script>
+</body>
+</html>
